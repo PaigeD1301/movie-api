@@ -5,7 +5,7 @@
 
   export let movies;
 
-  const fetchMovies = async () => {
+  onMount(async function () {
     const response = await fetch(
       'https://api.themoviedb.org/3/movie/popular?api_key=98ce9354af181e62179e2e1b708c0451&language=en-US&page=1'
     );
@@ -13,11 +13,15 @@
     console.log(data);
 
     movies = data.results;
-  };
-
-  onMount(fetchMovies);
+  });
 </script>
 
-{#if movies}
-  <Movies {movies} />
-{/if}
+<section class="main">
+  <h1>MOVIE DATABASE</h1>
+  {#if movies}
+    <Movies {movies} />
+  {/if}
+</section>
+
+<style>
+</style>

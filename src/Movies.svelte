@@ -12,7 +12,7 @@
 
 <style>
   h2 {
-    padding: 1.5rem 0 0 1.5rem;
+    padding-left: 1.5rem;
   }
   .popular-movies {
     display: grid;

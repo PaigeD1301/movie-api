@@ -1,17 +1,31 @@
 <script>
+  import MovieDetails from './MovieDetails.svelte';
+
   export let movie;
+  let showDetails = false;
+
+  const movieDetails = () => {
+    showDetails = !showDetails;
+  };
 </script>
 
 <div class="movie-card">
   <img
     src={'https://image.tmdb.org/t/p/w500' + movie.poster_path}
     alt={movie.title}
+    on:click={movieDetails}
   />
   <div class="description">
     <h2>{movie.title}</h2>
     <p>{movie.release_date}</p>
   </div>
 </div>
+
+{#if showDetails}
+  <div>
+    <MovieDetails {movie} on:hide={movieDetails} />
+  </div>
+{/if}
 
 <style>
   img {
